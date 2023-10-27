@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package go_config;
+
+option go_package = "github.com/kishorens18";
+
+import "google/protobuf/empty.proto";
+
+
+message Request {
+    string Key =1 ;
+    string Value =2 ;
+}
+
+message GetDataRequest {
+    string prefix = 1;
+}
+
+
+
+service MyService {
+    rpc InsertData(Request) returns (google.protobuf.Empty);
+    rpc GetData(GetDataRequest) returns(google.protobuf.Empty);
+}
